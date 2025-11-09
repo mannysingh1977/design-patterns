@@ -16,17 +16,21 @@ public class ConcreteStock implements Stock {
 
     @Override
     public void addInvestor(Investor investor) {
-        // TODO: Implement this method
+        if (investor != null && !investors.contains(investor)) {
+            investors.add(investor);
+        }
     }
 
     @Override
     public void removeInvestor(Investor investor) {
-        // TODO: Implement this method
+        investors.remove(investor);
     }
 
     @Override
     public void notifyInvestors() {
-        // TODO: Implement this method
+        for (Investor investor : investors) {
+            investor.update(stockSymbol, price);
+        }
     }
 
     public void setPrice(double newPrice) {
